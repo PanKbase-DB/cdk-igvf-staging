@@ -1,0 +1,420 @@
+{
+    "Parameters": {
+        "BootstrapVersion": {
+            "Default": "/cdk-bootstrap/hnb659fds/version",
+            "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+            "Type": "AWS::SSM::Parameter::Value<String>"
+        }
+    },
+    "Resources": {
+        "StagingVpcFE1BE17E": {
+            "Properties": {
+                "CidrBlock": "10.5.0.0/16",
+                "EnableDnsHostnames": true,
+                "EnableDnsSupport": true,
+                "InstanceTenancy": "default",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc"
+                    }
+                ]
+            },
+            "Type": "AWS::EC2::VPC"
+        },
+        "StagingVpcIGW56D5C162": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc"
+                    }
+                ]
+            },
+            "Type": "AWS::EC2::InternetGateway"
+        },
+        "StagingVpcVPCGWFBBE476D": {
+            "Properties": {
+                "InternetGatewayId": {
+                    "Ref": "StagingVpcIGW56D5C162"
+                },
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::VPCGatewayAttachment"
+        },
+        "StagingVpcisolatedSubnet1RouteTable04890944": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/isolatedSubnet1"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::RouteTable"
+        },
+        "StagingVpcisolatedSubnet1RouteTableAssociationBF1D2305": {
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "StagingVpcisolatedSubnet1RouteTable04890944"
+                },
+                "SubnetId": {
+                    "Ref": "StagingVpcisolatedSubnet1Subnet9868281A"
+                }
+            },
+            "Type": "AWS::EC2::SubnetRouteTableAssociation"
+        },
+        "StagingVpcisolatedSubnet1Subnet9868281A": {
+            "Properties": {
+                "AvailabilityZone": "dummy1a",
+                "CidrBlock": "10.5.48.0/20",
+                "MapPublicIpOnLaunch": false,
+                "Tags": [
+                    {
+                        "Key": "aws-cdk:subnet-name",
+                        "Value": "isolated"
+                    },
+                    {
+                        "Key": "aws-cdk:subnet-type",
+                        "Value": "Isolated"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/isolatedSubnet1"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        },
+        "StagingVpcisolatedSubnet2RouteTable3A4D60C5": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/isolatedSubnet2"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::RouteTable"
+        },
+        "StagingVpcisolatedSubnet2RouteTableAssociation6FE346AB": {
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "StagingVpcisolatedSubnet2RouteTable3A4D60C5"
+                },
+                "SubnetId": {
+                    "Ref": "StagingVpcisolatedSubnet2SubnetD97447EE"
+                }
+            },
+            "Type": "AWS::EC2::SubnetRouteTableAssociation"
+        },
+        "StagingVpcisolatedSubnet2SubnetD97447EE": {
+            "Properties": {
+                "AvailabilityZone": "dummy1b",
+                "CidrBlock": "10.5.64.0/20",
+                "MapPublicIpOnLaunch": false,
+                "Tags": [
+                    {
+                        "Key": "aws-cdk:subnet-name",
+                        "Value": "isolated"
+                    },
+                    {
+                        "Key": "aws-cdk:subnet-type",
+                        "Value": "Isolated"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/isolatedSubnet2"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        },
+        "StagingVpcisolatedSubnet3RouteTable25F69A28": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/isolatedSubnet3"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::RouteTable"
+        },
+        "StagingVpcisolatedSubnet3RouteTableAssociationE57ED24C": {
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "StagingVpcisolatedSubnet3RouteTable25F69A28"
+                },
+                "SubnetId": {
+                    "Ref": "StagingVpcisolatedSubnet3SubnetC797E208"
+                }
+            },
+            "Type": "AWS::EC2::SubnetRouteTableAssociation"
+        },
+        "StagingVpcisolatedSubnet3SubnetC797E208": {
+            "Properties": {
+                "AvailabilityZone": "dummy1c",
+                "CidrBlock": "10.5.80.0/20",
+                "MapPublicIpOnLaunch": false,
+                "Tags": [
+                    {
+                        "Key": "aws-cdk:subnet-name",
+                        "Value": "isolated"
+                    },
+                    {
+                        "Key": "aws-cdk:subnet-type",
+                        "Value": "Isolated"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/isolatedSubnet3"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        },
+        "StagingVpcpublicSubnet1DefaultRoute2E5B38C5": {
+            "DependsOn": [
+                "StagingVpcVPCGWFBBE476D"
+            ],
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "GatewayId": {
+                    "Ref": "StagingVpcIGW56D5C162"
+                },
+                "RouteTableId": {
+                    "Ref": "StagingVpcpublicSubnet1RouteTable568E35D6"
+                }
+            },
+            "Type": "AWS::EC2::Route"
+        },
+        "StagingVpcpublicSubnet1RouteTable568E35D6": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/publicSubnet1"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::RouteTable"
+        },
+        "StagingVpcpublicSubnet1RouteTableAssociation62011AD9": {
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "StagingVpcpublicSubnet1RouteTable568E35D6"
+                },
+                "SubnetId": {
+                    "Ref": "StagingVpcpublicSubnet1Subnet19BBBBE9"
+                }
+            },
+            "Type": "AWS::EC2::SubnetRouteTableAssociation"
+        },
+        "StagingVpcpublicSubnet1Subnet19BBBBE9": {
+            "Properties": {
+                "AvailabilityZone": "dummy1a",
+                "CidrBlock": "10.5.0.0/20",
+                "MapPublicIpOnLaunch": true,
+                "Tags": [
+                    {
+                        "Key": "aws-cdk:subnet-name",
+                        "Value": "public"
+                    },
+                    {
+                        "Key": "aws-cdk:subnet-type",
+                        "Value": "Public"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/publicSubnet1"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        },
+        "StagingVpcpublicSubnet2DefaultRoute508747BC": {
+            "DependsOn": [
+                "StagingVpcVPCGWFBBE476D"
+            ],
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "GatewayId": {
+                    "Ref": "StagingVpcIGW56D5C162"
+                },
+                "RouteTableId": {
+                    "Ref": "StagingVpcpublicSubnet2RouteTable51D491D1"
+                }
+            },
+            "Type": "AWS::EC2::Route"
+        },
+        "StagingVpcpublicSubnet2RouteTable51D491D1": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/publicSubnet2"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::RouteTable"
+        },
+        "StagingVpcpublicSubnet2RouteTableAssociation7740C882": {
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "StagingVpcpublicSubnet2RouteTable51D491D1"
+                },
+                "SubnetId": {
+                    "Ref": "StagingVpcpublicSubnet2Subnet76F784F2"
+                }
+            },
+            "Type": "AWS::EC2::SubnetRouteTableAssociation"
+        },
+        "StagingVpcpublicSubnet2Subnet76F784F2": {
+            "Properties": {
+                "AvailabilityZone": "dummy1b",
+                "CidrBlock": "10.5.16.0/20",
+                "MapPublicIpOnLaunch": true,
+                "Tags": [
+                    {
+                        "Key": "aws-cdk:subnet-name",
+                        "Value": "public"
+                    },
+                    {
+                        "Key": "aws-cdk:subnet-type",
+                        "Value": "Public"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/publicSubnet2"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        },
+        "StagingVpcpublicSubnet3DefaultRoute7F2F0C02": {
+            "DependsOn": [
+                "StagingVpcVPCGWFBBE476D"
+            ],
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "GatewayId": {
+                    "Ref": "StagingVpcIGW56D5C162"
+                },
+                "RouteTableId": {
+                    "Ref": "StagingVpcpublicSubnet3RouteTable444B5B9F"
+                }
+            },
+            "Type": "AWS::EC2::Route"
+        },
+        "StagingVpcpublicSubnet3RouteTable444B5B9F": {
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/publicSubnet3"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::RouteTable"
+        },
+        "StagingVpcpublicSubnet3RouteTableAssociation26CC34BB": {
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "StagingVpcpublicSubnet3RouteTable444B5B9F"
+                },
+                "SubnetId": {
+                    "Ref": "StagingVpcpublicSubnet3SubnetAED29890"
+                }
+            },
+            "Type": "AWS::EC2::SubnetRouteTableAssociation"
+        },
+        "StagingVpcpublicSubnet3SubnetAED29890": {
+            "Properties": {
+                "AvailabilityZone": "dummy1c",
+                "CidrBlock": "10.5.32.0/20",
+                "MapPublicIpOnLaunch": true,
+                "Tags": [
+                    {
+                        "Key": "aws-cdk:subnet-name",
+                        "Value": "public"
+                    },
+                    {
+                        "Key": "aws-cdk:subnet-type",
+                        "Value": "Public"
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "NetworkStack/StagingVpc/publicSubnet3"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "StagingVpcFE1BE17E"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        }
+    },
+    "Rules": {
+        "CheckBootstrapVersion": {
+            "Assertions": [
+                {
+                    "Assert": {
+                        "Fn::Not": [
+                            {
+                                "Fn::Contains": [
+                                    [
+                                        "1",
+                                        "2",
+                                        "3",
+                                        "4",
+                                        "5"
+                                    ],
+                                    {
+                                        "Ref": "BootstrapVersion"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+                }
+            ]
+        }
+    }
+}
