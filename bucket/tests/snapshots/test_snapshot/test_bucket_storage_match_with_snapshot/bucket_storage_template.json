@@ -10,7 +10,7 @@
         "BlobsBucket4E25380C": {
             "DeletionPolicy": "Retain",
             "Properties": {
-                "BucketName": "igvf-blobs-staging",
+                "BucketName": "pankbase-blobs-staging",
                 "CorsConfiguration": {
                     "CorsRules": [
                         {
@@ -53,7 +53,7 @@
             "DeletionPolicy": "Retain",
             "Properties": {
                 "AccessControl": "LogDeliveryWrite",
-                "BucketName": "igvf-blobs-staging-logs"
+                "BucketName": "pankbase-blobs-staging-logs"
             },
             "Type": "AWS::S3::Bucket",
             "UpdateReplacePolicy": "Retain"
@@ -61,7 +61,7 @@
         "FilesBucket16450113": {
             "DeletionPolicy": "Retain",
             "Properties": {
-                "BucketName": "igvf-files-staging",
+                "BucketName": "pankbase-files-staging",
                 "CorsConfiguration": {
                     "CorsRules": [
                         {
@@ -125,7 +125,7 @@
             "DeletionPolicy": "Retain",
             "Properties": {
                 "AccessControl": "LogDeliveryWrite",
-                "BucketName": "igvf-files-staging-logs"
+                "BucketName": "pankbase-files-staging-logs"
             },
             "Type": "AWS::S3::Bucket",
             "UpdateReplacePolicy": "Retain"

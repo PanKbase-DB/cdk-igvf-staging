@@ -18,9 +18,9 @@ class NotificationStack(cdk.Stack):
         self.aws_igvf_staging_channel: SlackChannelConfiguration = SlackChannelConfiguration(
             self,
             'AwsIgvfStagingChannel',
-            slack_channel_configuration_name='aws-igvf-staging',
-            slack_workspace_id='T1KMV4JJZ',
-            slack_channel_id='C04DC8LTG1X',
+            slack_channel_configuration_name='aws-pankbase-staging',
+            slack_workspace_id='T074YEUTZAR',
+            slack_channel_id='C075Q5XRD0Q',
         )
         self.alarm_notification_topic = Topic(
             self,

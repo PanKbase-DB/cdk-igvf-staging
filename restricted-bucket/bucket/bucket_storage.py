@@ -16,7 +16,7 @@ from typing import Any
 from typing import List
 
 
-RESTRICTED_FILES_BUCKET_NAME = 'igvf-restricted-files-staging'
+RESTRICTED_FILES_BUCKET_NAME = 'pankbase-restricted-files-staging'
 
 
 BROWSER_UPLOAD_CORS = CorsRule(
