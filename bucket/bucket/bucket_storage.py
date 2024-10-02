@@ -18,8 +18,8 @@ from typing import List
 
 BLOBS_BUCKET_NAME = 'pankbase-blobs-staging'
 FILES_BUCKET_NAME = 'pankbase-files-staging'
-BLOBS_BUCKET_NAME_LOGS = 'pankbase-blobs-log'
-FILES_BUCKET_NAME_LOGS = 'pankbase-files-dev-log'
+BLOBS_BUCKET_NAME_LOGS = 'pankbase-blobs-log-staging'
+FILES_BUCKET_NAME_LOGS = 'pankbase-files-staging-log'
 
 BROWSER_UPLOAD_CORS = CorsRule(
     allowed_methods=[
